@@ -46,13 +46,15 @@
 
 *{box-sizing:border-box;margin:0;padding:0}
 
+html{ font-size:16px; }
+
 body{
   background: var(--parchment);
   background-image:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
   color: var(--text-main);
   font-family: 'Lora', serif;
-  font-size: var(--font);
+  font-size: 1rem;
   min-height: 100vh;
   transition: background .3s, color .3s;
 }
@@ -121,7 +123,7 @@ h1{
 }
 .header-ornament span{
   color:var(--gold);
-  font-size:14px;
+  font-size:.875rem;
   letter-spacing:.15em;
 }
 
@@ -257,7 +259,7 @@ h1{
   padding: .2rem .65rem;
   border-radius: 3px;
   font-family:'Cinzel',serif;
-  font-size:.82rem;
+  font-size:.8rem;
   font-weight:700;
   margin-right:.7rem;
   flex-shrink:0;
@@ -326,7 +328,7 @@ h1{
 }
 .detail-header .back{
   font-family:'Cinzel',serif;
-  font-size:.82rem;
+  font-size:.8rem;
   letter-spacing:.12em;
   color: var(--gold);
   font-weight:600;
@@ -352,7 +354,7 @@ h1{
 /* detail title */
 .detail h2{
   font-family:'Cinzel',serif;
-  font-size:1.35rem;
+  font-size:1.3rem;
   font-weight:600;
   color:var(--text-main);
   line-height:1.35;
@@ -368,7 +370,7 @@ h1{
   content:'';flex:1;height:1px;
   background:linear-gradient(90deg,transparent,var(--gold),transparent);
 }
-.detail-divider span{color:var(--gold);font-size:13px;}
+.detail-divider span{color:var(--gold);font-size:.8rem;}
 
 /* lyrics */
 .lyrics{
@@ -394,7 +396,7 @@ audio{
   margin:1rem 0 .5rem;
   color:var(--gold);
   font-family:'Cinzel',serif;
-  font-size:.82rem;
+  font-size:.8rem;
   letter-spacing:.1em;
   font-weight:600;
   text-decoration:none;
@@ -409,7 +411,7 @@ audio{
   display:block;
   margin-top:1.5rem;
   font-family:'Cinzel',serif;
-  font-size:.82rem;
+  font-size:.8rem;
   letter-spacing:.12em;
   color:var(--gold);
   font-weight:600;
@@ -478,8 +480,8 @@ audio{
     <div class="header-ornament"><span>✦ ✦ ✦</span></div>
     <div class="controls">
       <button onclick="toggleTheme()">🌙</button>
-      <button onclick="font(-1)">A−</button>
-      <button onclick="font(1)">A+</button>
+      <button onclick="ajustarFonte(-1)">A−</button>
+      <button onclick="ajustarFonte(1)">A+</button>
     </div>
   </div>
 </header>
@@ -504,8 +506,8 @@ audio{
       <div class="detail-header">
         <span class="back" onclick="closePlaylist()">← Voltar ao índice</span>
         <div class="detail-controls">
-          <button onclick="font(-1)">A−</button>
-          <button onclick="font(1)">A+</button>
+          <button onclick="ajustarFonte(-1)">A−</button>
+          <button onclick="ajustarFonte(1)">A+</button>
         </div>
       </div>
       <h2>♪ Playlist</h2>
@@ -530,8 +532,8 @@ audio{
       <div class="detail-header">
         <span class="back" onclick="closeDetail()">← Voltar ao índice</span>
         <div class="detail-controls">
-          <button onclick="font(-1)">A−</button>
-          <button onclick="font(1)">A+</button>
+          <button onclick="ajustarFonte(-1)">A−</button>
+          <button onclick="ajustarFonte(1)">A+</button>
         </div>
       </div>
       <h2><span id="dnum"></span> – <span id="dtitle"></span></h2>
@@ -547,11 +549,11 @@ audio{
 <script>
 const CSV_URL="https://docs.google.com/spreadsheets/d/e/2PACX-1vRMmvd1DczfnoyH1TzT0eqjCoSw1dkYXMKKcpO5_NbfHJ-d3bDQjlLOJtBk_EwKsiXoq3gGqUC854KC/pub?gid=0&single=true&output=csv";
 
-let hymns=[],size=16;
+let size=16;
 
-function font(d){
+function ajustarFonte(d){
   size=Math.min(26,Math.max(12,size+d));
-  document.documentElement.style.setProperty('--font',size+'px');
+  document.documentElement.style.fontSize=size+'px';
 }
 function toggleTheme(){document.body.classList.toggle('dark')}
 
@@ -675,8 +677,4 @@ search.oninput=e=>{
 
 <script>
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('sw.js').catch(()=>{});
-}
-</script>
-</body>
-</html>
+  navigator.serviceWorker.register('
