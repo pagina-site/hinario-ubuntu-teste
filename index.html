@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hinário Ubuntu</title>
+<title>Louvor e Adoração - Igreja Ubuntu</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=IM+Fell+English:ital@0;1&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#FFC72C">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Hinário Ubuntu">
+<meta name="apple-mobile-web-app-title" content="Louvor e Adoração">
 <link rel="apple-touch-icon" href="https://i.imgur.com/4aZvsOD.png">
 
 <style>
@@ -85,12 +85,13 @@ header::before{
 }
 .header-top{
   display:flex;
+  flex-direction:column;
   align-items:center;
-  gap:calc(1rem * var(--header-scale, 1));
+  gap:calc(1.2rem * var(--header-scale, 1));
 }
 header img{
-  width:calc(56px * var(--header-scale, 1));
-  height:calc(56px * var(--header-scale, 1));
+  width:calc(75px * var(--header-scale, 1));
+  height:calc(75px * var(--header-scale, 1));
   flex-shrink:0;
   border-radius:50%;
   object-fit:cover;
@@ -103,7 +104,9 @@ h1{
   font-weight:700;
   letter-spacing:.05em;
   color: var(--text-main);
-  white-space:nowrap;
+  white-space:normal;
+  text-align:center;
+  line-height:1.2;
 }
 
 .header-ornament{
@@ -467,7 +470,7 @@ audio{
 /* ── MOBILE OPTIMIZATIONS ── */
 @media (max-width: 768px){
   :root{
-    --header-scale: 0.85; /* Reduz cabeçalho em 15% no mobile */
+    --header-scale: 0.85;
   }
   
   header{
@@ -475,12 +478,11 @@ audio{
   }
   
   .header-top{
-    gap:calc(0.6rem * var(--header-scale));
+    gap:calc(0.8rem * var(--header-scale));
   }
   
   h1{
     font-size:calc(1.3rem * var(--header-scale));
-    text-align:center;
   }
   
   .controls button{
@@ -504,7 +506,7 @@ audio{
 
 @media (max-width: 480px){
   :root{
-    --header-scale: 0.75; /* Reduz ainda mais em telas muito pequenas */
+    --header-scale: 0.75;
   }
   
   h1{
@@ -512,8 +514,8 @@ audio{
   }
   
   header img{
-    width:calc(45px * var(--header-scale));
-    height:calc(45px * var(--header-scale));
+    width:calc(60px * var(--header-scale));
+    height:calc(60px * var(--header-scale));
   }
 }
 </style>
@@ -524,8 +526,8 @@ audio{
 <header>
   <div class="header-wrapper">
     <div class="header-top">
-      <img src="https://i.imgur.com/4aZvsOD.png">
-      <h1>Hinário Ubuntu</h1>
+      <img src="https://i.imgur.com/4aZvsOD.png" alt="Logo Igreja Ubuntu">
+      <h1>Louvor e Adoração<br>Igreja Ubuntu</h1>
     </div>
     <div class="header-ornament"><span>✦ ✦ ✦</span></div>
     <div class="controls">
